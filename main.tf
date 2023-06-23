@@ -1,7 +1,5 @@
 #This Terraform Code Deploys Basic VPC Infra.
 provider "aws" {
-    access_key = "${var.aws_access_key}"
-    secret_key = "${var.aws_secret_key}"
     region = "${var.aws_region}"
 }
 
@@ -10,7 +8,7 @@ resource "aws_vpc" "default" {
     enable_dns_hostnames = true
     tags = {
         Name = "${var.vpc_name}"
-	Owner = "Sree"
+	Owner = "Sreevirapalli"
     }
 }
 
@@ -51,7 +49,6 @@ resource "aws_subnet" "subnet3-public" {
     }
 	
 }
-
 
 resource "aws_route_table" "terraform-public" {
     vpc_id = "${aws_vpc.default.id}"
